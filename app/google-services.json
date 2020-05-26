@@ -1,0 +1,127 @@
+{
+  "project_info": {
+    "project_number": "1053606844222",
+    "firebase_url": "https://freelancerapp-57298.firebaseio.com",
+    "project_id": "freelancerapp-57298",
+    "storage_bucket": "freelancerapp-57298.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1053606844222:android:715dc334eb8045ac58be6f",
+        "android_client_info": {
+          "package_name": "com.example.himasha.workhub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1053606844222-c03cakin0jhffrt3kgh644c5q0hur16a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdYfHMTY8MG1AyuV3F7l0o5vvFSPfdmgk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1053606844222-c03cakin0jhffrt3kgh644c5q0hur16a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1053606844222:android:f6fded2e6149bcc358be6f",
+        "android_client_info": {
+          "package_name": "com.ninjas.tk.trabajito"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1053606844222-c03cakin0jhffrt3kgh644c5q0hur16a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdYfHMTY8MG1AyuV3F7l0o5vvFSPfdmgk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1053606844222-c03cakin0jhffrt3kgh644c5q0hur16a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1053606844222:android:6abb29b1787c05db58be6f",
+        "android_client_info": {
+          "package_name": "com.ninjas.tk.workhub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1053606844222-c03cakin0jhffrt3kgh644c5q0hur16a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdYfHMTY8MG1AyuV3F7l0o5vvFSPfdmgk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1053606844222-c03cakin0jhffrt3kgh644c5q0hur16a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1053606844222:android:f8311ee57363f32758be6f",
+        "android_client_info": {
+          "package_name": "tk.freep"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1053606844222-c03cakin0jhffrt3kgh644c5q0hur16a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdYfHMTY8MG1AyuV3F7l0o5vvFSPfdmgk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1053606844222-c03cakin0jhffrt3kgh644c5q0hur16a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
