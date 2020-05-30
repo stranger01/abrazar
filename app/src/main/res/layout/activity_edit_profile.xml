@@ -50,7 +50,7 @@
                         android:layout_marginLeft="15dp"
                         android:layout_weight="1"
                         android:background="@android:color/transparent"
-                        android:text="A que te dedicas"
+                        android:text="Una breve descripcion"
                         android:textAlignment="textStart" />
 
 
@@ -80,7 +80,7 @@
                         android:layout_marginTop="5dp"
                         android:background="@drawable/input_outline"
                         android:ems="10"
-                        android:hint="E.j Mecanico "
+                        android:hint="ej Madre soltera con 2 hijos"
                         android:inputType="textPersonName"
                         android:padding="10dp" />
                 </LinearLayout>
@@ -182,7 +182,7 @@
                         android:layout_marginLeft="15dp"
                         android:layout_weight="1"
                         android:background="@android:color/transparent"
-                        android:text="Especialidad"
+                        android:text="Como puedes ayudar"
                         android:textAlignment="textStart" />
 
 
@@ -212,7 +212,7 @@
                         android:layout_marginTop="5dp"
                         android:background="@drawable/input_outline"
                         android:ems="10"
-                        android:hint="Especialista en ..."
+                        android:hint="Voy a ayudar con..."
                         android:inputType="text"
                         android:padding="10dp" />
                 </LinearLayout>

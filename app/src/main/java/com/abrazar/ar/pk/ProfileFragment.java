@@ -1,4 +1,4 @@
-package com.ninjas.tk.trabajito;
+package com.abrazar.ar.pk;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -34,6 +34,7 @@ public class ProfileFragment extends Fragment {
     private DatabaseReference workhub;
     private DatabaseReference workhubusers;
     private FirebaseAuth auth;
+
     public static ProfileFragment newInstance() {
         ProfileFragment fragment = new ProfileFragment();
         return fragment;
@@ -56,7 +57,7 @@ public class ProfileFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
-        FirebaseRecyclerAdapter<Job,ProJobViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Job, ProJobViewHolder>(
+        FirebaseRecyclerAdapter<Job, ProJobViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Job, ProJobViewHolder>(
                 Job.class,
                 R.layout.profilejob_list,
                 ProJobViewHolder.class,
@@ -82,33 +83,34 @@ public class ProfileFragment extends Fragment {
         projobs_list.setAdapter(firebaseRecyclerAdapter);
     }
 
-    public static class ProJobViewHolder extends RecyclerView.ViewHolder{
+    public static class ProJobViewHolder extends RecyclerView.ViewHolder {
 
         View mview;
+
         public ProJobViewHolder(View itemView) {
             super(itemView);
 
             mview = itemView;
         }
 
-        public void setJobName(String jobname){
+        public void setJobName(String jobname) {
             TextView jName = (TextView) mview.findViewById(R.id.projobrowname);
             jName.setText(jobname);
         }
 
-        public void setJobBudget(String jobbudget){
+        public void setJobBudget(String jobbudget) {
             TextView jBudget = (TextView) mview.findViewById(R.id.projobrowbudget);
-            jBudget.setText("COP."+jobbudget);
+            jBudget.setText("COP." + jobbudget);
         }
 
-        public void setJobLocation(String jobLocation){
+        public void setJobLocation(String jobLocation) {
             TextView jLocation = (TextView) mview.findViewById(R.id.projobrowlocation);
             jLocation.setText(jobLocation);
         }
 
-        public void setJobDate(String jobDate){
+        public void setJobDate(String jobDate) {
             TextView jDate = (TextView) mview.findViewById(R.id.projobrowdate);
-            jDate.setText("Agregado en "+jobDate);
+            jDate.setText("Agregado en " + jobDate);
         }
     }
 
@@ -118,27 +120,27 @@ public class ProfileFragment extends Fragment {
         workhubusers = FirebaseDatabase.getInstance().getReference().child("users").child(auth.getCurrentUser().getUid());
 
 
-        projobs_list = (RecyclerView)view.findViewById(R.id.projobs_list);
+        projobs_list = (RecyclerView) view.findViewById(R.id.projobs_list);
         projobs_list.setLayoutManager(new LinearLayoutManager(this.getActivity()));
 
-        proname = (TextView)view.findViewById(R.id.singleProfileUserName);
-        proemail = (TextView)view.findViewById(R.id.singleProfileEmail);
-        protelephone = (TextView)view.findViewById(R.id.singleProfileTelephone);
-        prohomeaddress = (TextView)view.findViewById(R.id.singleProfileAddress);
-        prowebsite = (TextView)view.findViewById(R.id.singleProfileWebsite);
-        probio = (TextView)view.findViewById(R.id.singleProfileBio);
+        proname = (TextView) view.findViewById(R.id.singleProfileUserName);
+        proemail = (TextView) view.findViewById(R.id.singleProfileEmail);
+        protelephone = (TextView) view.findViewById(R.id.singleProfileTelephone);
+        prohomeaddress = (TextView) view.findViewById(R.id.singleProfileAddress);
+        prowebsite = (TextView) view.findViewById(R.id.singleProfileWebsite);
+        probio = (TextView) view.findViewById(R.id.singleProfileBio);
 
-        editprofile = (Button)view.findViewById(R.id.profileEditBTN);
+        editprofile = (Button) view.findViewById(R.id.profileEditBTN);
 
         workhubusers.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                proname.setText((String)dataSnapshot.child("userName").getValue());
-                proemail.setText((String)dataSnapshot.child("userEmail").getValue());
-                protelephone.setText((String)dataSnapshot.child("userTelephone").getValue());
-                prohomeaddress.setText((String)dataSnapshot.child("userAddress").getValue());
-                prowebsite.setText((String)dataSnapshot.child("userWebsite").getValue());
-                probio.setText((String)dataSnapshot.child("userBio").getValue());
+                proname.setText((String) dataSnapshot.child("userName").getValue());
+                proemail.setText((String) dataSnapshot.child("userEmail").getValue());
+                protelephone.setText((String) dataSnapshot.child("userTelephone").getValue());
+                prohomeaddress.setText((String) dataSnapshot.child("userAddress").getValue());
+                prowebsite.setText((String) dataSnapshot.child("userWebsite").getValue());
+                probio.setText((String) dataSnapshot.child("userBio").getValue());
 
             }
 

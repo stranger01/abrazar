@@ -1,9 +1,8 @@
-package com.ninjas.tk.trabajito;
+package com.abrazar.ar.pk;
 
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;

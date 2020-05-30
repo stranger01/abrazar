@@ -1,4 +1,4 @@
-package com.ninjas.tk.trabajito;
+package com.abrazar.ar.pk;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -27,6 +27,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
     private FirebaseAuth auth;
     private DatabaseReference workhub;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,22 +36,22 @@ public class EditProfileActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         workhub = FirebaseDatabase.getInstance().getReference().child("users").child(auth.getCurrentUser().getUid());
 
-        profileBio = (EditText)findViewById(R.id.editprofilebioET);
-        profileAddress = (EditText)findViewById(R.id.editprofileaddressET);
-        profileWebsite = (EditText)findViewById(R.id.editprofileWebsiteET);
-        profileTelephone = (EditText)findViewById(R.id.editprofileTelephoneET);
-        profileEmail = (EditText)findViewById(R.id.editprofileEmailET);
+        profileBio = (EditText) findViewById(R.id.editprofilebioET);
+        profileAddress = (EditText) findViewById(R.id.editprofileaddressET);
+        profileWebsite = (EditText) findViewById(R.id.editprofileWebsiteET);
+        profileTelephone = (EditText) findViewById(R.id.editprofileTelephoneET);
+        profileEmail = (EditText) findViewById(R.id.editprofileEmailET);
 
         editProfile = (Button) findViewById(R.id.editProfileBTN);
 
         workhub.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                profileBio.setText((String)dataSnapshot.child("userBio").getValue());
-                profileAddress.setText((String)dataSnapshot.child("userAddress").getValue());
-                profileWebsite.setText((String)dataSnapshot.child("userWebsite").getValue());
-                profileTelephone.setText((String)dataSnapshot.child("userTelephone").getValue());
-                profileEmail.setText((String)dataSnapshot.child("userEmail").getValue());
+                profileBio.setText((String) dataSnapshot.child("userBio").getValue());
+                profileAddress.setText((String) dataSnapshot.child("userAddress").getValue());
+                profileWebsite.setText((String) dataSnapshot.child("userWebsite").getValue());
+                profileTelephone.setText((String) dataSnapshot.child("userTelephone").getValue());
+                profileEmail.setText((String) dataSnapshot.child("userEmail").getValue());
             }
 
             @Override
@@ -74,7 +75,7 @@ public class EditProfileActivity extends AppCompatActivity {
                 workhub.child("userTelephone").setValue(telephone);
                 workhub.child("userEmail").setValue(email);
 
-                Toast.makeText(EditProfileActivity.this,"Cambios guardados!",Toast.LENGTH_SHORT).show();
+                Toast.makeText(EditProfileActivity.this, "Cambios guardados!", Toast.LENGTH_SHORT).show();
             }
         });
 

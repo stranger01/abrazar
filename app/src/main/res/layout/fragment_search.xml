@@ -38,7 +38,7 @@
                     android:background="@drawable/input_outline"
                     android:drawableLeft="@drawable/ic_search_black_24dp"
                     android:ems="10"
-                    android:hint="e.j Jardinero"
+                    android:hint="e.j productos para el hogar"
                     android:padding="10dp" />
             </LinearLayout>
 
@@ -47,7 +47,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="Buscar trabajitos"
+                android:text="Cuales favores puedo hacer"
                 android:textAllCaps="true" />
 
 

@@ -1,4 +1,4 @@
-package com.ninjas.tk.trabajito;
+package com.abrazar.ar.pk;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -52,22 +52,16 @@ public class AddJobActivity extends AppCompatActivity {
         workhub = FirebaseDatabase.getInstance().getReference().child("jobs");
         workhubUsers = FirebaseDatabase.getInstance().getReference().child("users");
 
-        String[] skills = {"Logística","Alcaldías","Aseguradoras","Asistente,Automotriz","Banca y finanzas", "Bienes raíces", "Bodega","Call Center","Comercio","Computación",
-                "Comunicaciones y periodismo","Confección","Contabilidad","Coordinador","Educación","Empleo de temporada","Gestión de Proyectos","Jardineria","Cuidado de animales",
-                "Industria de alimentos","Construcción","Farmaceutica","Manufactura","Industria pesquera","Industria textil","Investigación",
-                "Mantenimiento","Medio ambiente","Salud ocupacional","Mercadeo","ONG","Organizaciones Religiosas","Panadería","Publicidad","Recursos humanos","Restaurantes","Salud",
-                "Servicio a Domicilio","Servicios de limpieza","Mantenimiento residencia","Servicios de Mercadeo","Servicios de Publicidad","Mecanicos",
-                "Mantenimiento de equipo electrónico","Servicios de Salud","Servicios de Seguridad","Transporte de personas","Servicios de Turismo","Servicios legales",
-                "Superviso","Mensajeria","Tecnología","Trabajo Social","Transporte","Ventas"};
+        String[] skills = {"Frutas", "Productos de limpieza", "Productos para el hogar" , "Enlatados"};
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>
                 (this, android.R.layout.select_dialog_item, skills);
 
-        addJobName = (EditText)findViewById(R.id.addjobJobNameET);
-        addJobDesc = (EditText)findViewById(R.id.addjobDescET);
-        addJobBudget = (EditText)findViewById(R.id.addjobBudgetET);
-        submitjob = (Button)findViewById(R.id.submitjobBTN);
-        addjobSkills = (AutoCompleteTextView)findViewById(R.id.addjobSkilltET);
+        addJobName = (EditText) findViewById(R.id.addjobJobNameET);
+        addJobDesc = (EditText) findViewById(R.id.addjobDescET);
+        addJobBudget = (EditText) findViewById(R.id.addjobBudgetET);
+        submitjob = (Button) findViewById(R.id.submitjobBTN);
+        addjobSkills = (AutoCompleteTextView) findViewById(R.id.addjobSkilltET);
         addjobSkills.setThreshold(1);
         addjobSkills.setAdapter(adapter);
 
@@ -90,16 +84,13 @@ public class AddJobActivity extends AppCompatActivity {
                 final String jdesc = addJobDesc.getText().toString();
                 final String jbudget = addJobBudget.getText().toString();
                 final String skill = addjobSkills.getText().toString();
-                if (!TextUtils.isEmpty(jname) && !TextUtils.isEmpty(jdesc) && !TextUtils.isEmpty(jbudget) && !TextUtils.isEmpty(skill))
-                {
+                if (!TextUtils.isEmpty(jname) && !TextUtils.isEmpty(jdesc) && !TextUtils.isEmpty(jbudget) && !TextUtils.isEmpty(skill)) {
                     builder.setTitle("Confirmación");
-                    builder.setMessage("Quieres agregar este trabajo?");
+                    builder.setMessage("Quieres agregar este Favor?");
 
                     builder.setPositiveButton("Sí", new DialogInterface.OnClickListener() {
 
                         public void onClick(DialogInterface dialog, int which) {
-
-
 
 
                             SimpleDateFormat sdf = new SimpleDateFormat("MMMM d, yyyy");
@@ -121,10 +112,11 @@ public class AddJobActivity extends AppCompatActivity {
 
                             workhub.child(jobId).setValue(newJob);
 
-                            Toast.makeText(AddJobActivity.this,"Se agrego el trabajo",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AddJobActivity.this, "Se agrego el Favor" +
+                                    "", Toast.LENGTH_SHORT).show();
                             dialog.dismiss();
 
-                            startActivity(new Intent(AddJobActivity.this,FeedActivity.class));
+                            startActivity(new Intent(AddJobActivity.this, FeedActivity.class));
                             finish();
                         }
                     });
@@ -142,10 +134,8 @@ public class AddJobActivity extends AppCompatActivity {
                     AlertDialog alert = builder.create();
                     alert.show();
 
-                }
-                else
-                {
-                    Toast.makeText(AddJobActivity.this,"Debes completart todos los campos!",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(AddJobActivity.this, "Debes completar todos los campos!", Toast.LENGTH_SHORT).show();
                 }
             }
         });

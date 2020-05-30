@@ -84,7 +84,7 @@
                         android:id="@+id/textView2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Cual es nombre del trabajito? "
+                        android:text="Favor"
                         android:textAllCaps="true" />
 
                     <EditText
@@ -94,7 +94,7 @@
                         android:layout_marginTop="5dp"
                         android:background="@drawable/input_outline"
                         android:ems="10"
-                        android:hint="e.j Fabricar mueble"
+                        android:hint="Comprar comida enlatada"
                         android:inputType="textPersonName"
                         android:padding="10dp" />
                 </LinearLayout>
@@ -133,7 +133,7 @@
                         android:layout_marginTop="5dp"
                         android:background="@drawable/input_outline"
                         android:ems="10"
-                        android:hint="Las tareas a completar"
+                        android:hint="Necesito atun, aceite etc"
                         android:inputType="textMultiLine"
                         android:padding="10dp" />
                 </LinearLayout>

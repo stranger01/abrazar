@@ -120,10 +120,10 @@
                 <Button
                     android:id="@+id/singleProfileMsgBTN"
                     android:layout_width="wrap_content"
-                    android:layout_weight="1"
                     android:layout_height="31dp"
+                    android:layout_weight="1"
                     android:background="@android:color/transparent"
-                    android:text="APLICAR" />
+                    android:text="Ayudar" />
 
             </LinearLayout>
         </android.support.v7.widget.CardView>
@@ -157,7 +157,7 @@
                     android:layout_marginLeft="55dp"
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
-                    android:text="Deja una opinion"
+                    android:text="Deja un agradecimiento"
                     android:textAlignment="textStart" />
 
 

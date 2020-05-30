@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.ninjas.tk.trabajito">
+    package="com.abrazar.ar.pk">
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
@@ -15,7 +15,7 @@
         android:roundIcon="@mipmap/lanzador"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ForgotPasswordActivity"></activity>
+        <activity android:name="com.abrazar.ar.pk.ForgotPasswordActivity"></activity>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -24,22 +24,22 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".MainActivity">
+        <activity android:name="com.abrazar.ar.pk.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FeedActivity" />
-        <activity android:name=".AddJobActivity" />
-        <activity android:name=".SingleJobView" />
-        <activity android:name=".MapLoadActivity" />
-        <activity android:name=".EditJobActivity" />
-        <activity android:name=".SingleProfileActivity" />
-        <activity android:name=".EditProfileActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".RegisterActivity" />
+        <activity android:name="com.abrazar.ar.pk.FeedActivity" />
+        <activity android:name="com.abrazar.ar.pk.AddJobActivity" />
+        <activity android:name="com.abrazar.ar.pk.SingleJobView" />
+        <activity android:name="com.abrazar.ar.pk.MapLoadActivity" />
+        <activity android:name="com.abrazar.ar.pk.EditJobActivity" />
+        <activity android:name="com.abrazar.ar.pk.SingleProfileActivity" />
+        <activity android:name="com.abrazar.ar.pk.EditProfileActivity" />
+        <activity android:name="com.abrazar.ar.pk.LoginActivity" />
+        <activity android:name="com.abrazar.ar.pk.RegisterActivity" />
     </application>
 
 </manifest>

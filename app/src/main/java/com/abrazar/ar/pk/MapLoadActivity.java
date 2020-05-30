@@ -1,4 +1,4 @@
-package com.ninjas.tk.trabajito;
+package com.abrazar.ar.pk;
 
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -12,7 +12,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapLoadActivity extends AppCompatActivity  implements OnMapReadyCallback {
+public class MapLoadActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private Double job_lat = null;
     private Double job_long = null;

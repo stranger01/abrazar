@@ -1,4 +1,4 @@
-package com.ninjas.tk.trabajito;
+package com.abrazar.ar.pk;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -65,7 +65,7 @@ public class SingleJobView extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_single_job_view);
-        pref = this.getSharedPreferences("Users",0);
+        pref = this.getSharedPreferences("Users", 0);
         job_key = getIntent().getExtras().getString("job_id");
         auth = FirebaseAuth.getInstance();
         workhubJobs = FirebaseDatabase.getInstance().getReference().child("jobs");
@@ -84,12 +84,12 @@ public class SingleJobView extends AppCompatActivity {
         deletejob = (Button) findViewById(R.id.singlejobDeleteBTN);
         editjob = (Button) findViewById(R.id.singlejobEditBTN);
 
-        sugges_list = (RecyclerView)findViewById(R.id.sugges_list);
+        sugges_list = (RecyclerView) findViewById(R.id.sugges_list);
         sugges_list.setHasFixedSize(true);
         sugges_list.setLayoutManager(new LinearLayoutManager(this));
 
-        locationMapCardview = (CardView)findViewById(R.id.locationMapCard);
-        editRemoveJobcardview = (CardView)findViewById(R.id.editremoveJobCard);
+        locationMapCardview = (CardView) findViewById(R.id.locationMapCard);
+        editRemoveJobcardview = (CardView) findViewById(R.id.editremoveJobCard);
         postedUserCardview = (CardView) findViewById(R.id.postedUserCard);
 
 
@@ -113,20 +113,19 @@ public class SingleJobView extends AppCompatActivity {
                 jobName.setText(job_name);
                 jobDesc.setText(job_desc);
                 jobLocation.setText(job_location);
-                jobBudget.setText("COP."+job_budget);
-                jobPostedDate.setText("Agregado en "+job_postedDate);
-                jobPostedUser.setText("Solicitado por "+job_postedUserName);
+                jobBudget.setText("COP." + job_budget);
+                jobPostedDate.setText("Agregado en " + job_postedDate);
+                jobPostedUser.setText(job_postedUserName + " Dame este trabajito");
 
 
-                if (auth.getCurrentUser().getUid().equals(job_postedUser))
-                {
+                if (auth.getCurrentUser().getUid().equals(job_postedUser)) {
                     editRemoveJobcardview.setVisibility(View.VISIBLE);
-                }
-                else {
+                } else {
                     editRemoveJobcardview.setVisibility(View.GONE);
                 }
 
             }
+
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
@@ -137,11 +136,9 @@ public class SingleJobView extends AppCompatActivity {
         postedUserCardview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (posteduserid.equals(auth.getCurrentUser().getUid()))
-                {
+                if (posteduserid.equals(auth.getCurrentUser().getUid())) {
 
-                }
-                else {
+                } else {
                     Intent intent = new Intent(SingleJobView.this, SingleProfileActivity.class);
                     intent.putExtra("user_id", posteduserid);
                     startActivity(intent);
@@ -157,7 +154,7 @@ public class SingleJobView extends AppCompatActivity {
 
                 Intent intent = new Intent(SingleJobView.this, MapLoadActivity.class);
                 intent.putExtra("job_lat", jobLat);
-                intent.putExtra("job_long",jobLong);
+                intent.putExtra("job_long", jobLong);
                 startActivity(intent);
             }
         });
@@ -182,7 +179,7 @@ public class SingleJobView extends AppCompatActivity {
                 builder.setPositiveButton("Sí", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int which) {
-                        if(job_key != null) {
+                        if (job_key != null) {
                             workhubJobs.child(job_key).removeValue();
 
                             Intent intent2 = new Intent(SingleJobView.this, FeedActivity.class);
@@ -211,9 +208,6 @@ public class SingleJobView extends AppCompatActivity {
         });
 
 
-
-
-
     }
 
     @Override
@@ -223,7 +217,7 @@ public class SingleJobView extends AppCompatActivity {
         workhubJobs.child(job_key).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                FirebaseRecyclerAdapter<Job,SuggesViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Job, SuggesViewHolder>(
+                FirebaseRecyclerAdapter<Job, SuggesViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Job, SuggesViewHolder>(
                         Job.class,
                         R.layout.job_row,
                         SuggesViewHolder.class,
@@ -258,36 +252,36 @@ public class SingleJobView extends AppCompatActivity {
         });
 
 
-
     }
 
-    public static class SuggesViewHolder extends RecyclerView.ViewHolder{
+    public static class SuggesViewHolder extends RecyclerView.ViewHolder {
 
         View mview;
+
         public SuggesViewHolder(View itemView) {
             super(itemView);
 
             mview = itemView;
         }
 
-        public void setJobName(String jobname){
+        public void setJobName(String jobname) {
             TextView jName = (TextView) mview.findViewById(R.id.jobrowname);
             jName.setText(jobname);
         }
 
-        public void setJobBudget(String jobbudget){
+        public void setJobBudget(String jobbudget) {
             TextView jBudget = (TextView) mview.findViewById(R.id.jobrowbudget);
-            jBudget.setText("COP."+jobbudget);
+            jBudget.setText("COP." + jobbudget);
         }
 
-        public void setJobLocation(String jobLocation){
+        public void setJobLocation(String jobLocation) {
             TextView jLocation = (TextView) mview.findViewById(R.id.jobrowlocation);
             jLocation.setText(jobLocation);
         }
 
-        public void setJobDate(String jobDate){
+        public void setJobDate(String jobDate) {
             TextView jDate = (TextView) mview.findViewById(R.id.jobrowdate);
-            jDate.setText("Agregado en "+jobDate);
+            jDate.setText("Agregado en " + jobDate);
         }
     }
 }

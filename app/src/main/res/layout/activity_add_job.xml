@@ -50,7 +50,7 @@
                         android:layout_marginLeft="15dp"
                         android:layout_weight="1"
                         android:background="@android:color/transparent"
-                        android:text="Trabajito"
+                        android:text="Favor"
                         android:textAlignment="textStart" />
 
 
@@ -88,7 +88,7 @@
                         android:layout_marginTop="5dp"
                         android:background="@drawable/input_outline"
                         android:ems="10"
-                        android:hint="e.j Cocinero"
+                        android:hint="Frutas"
                         android:inputType="textPersonName"
                         android:padding="10dp" />
                 </LinearLayout>
@@ -124,7 +124,7 @@
                         android:layout_marginLeft="15dp"
                         android:layout_weight="1"
                         android:background="@android:color/transparent"
-                        android:text=" Tareas a realizar"
+                        android:text="Lista detallada"
                         android:textAlignment="textStart" />
 
 
@@ -162,7 +162,7 @@
                         android:layout_marginTop="5dp"
                         android:background="@drawable/input_outline"
                         android:ems="10"
-                        android:hint="Describe tu trabajito"
+                        android:hint="Necesito manzanas, peras..."
                         android:inputType="textMultiLine"
                         android:padding="10dp" />
                 </LinearLayout>
@@ -187,18 +187,18 @@
                         android:id="@+id/textasdasdaView123"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Habilidades"
+                        android:text="Categoria"
                         android:textAllCaps="true" />
 
                     <android.support.v7.widget.AppCompatAutoCompleteTextView
                         android:id="@+id/addjobSkilltET"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:padding="10dp"
                         android:layout_marginTop="5dp"
                         android:background="@drawable/input_outline"
-                        android:hint="e.j Cocinero"/>
+                        android:ems="10"
+                        android:hint="Fruta"
+                        android:padding="10dp" />
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>
@@ -248,7 +248,7 @@
                         android:layout_marginLeft="15dp"
                         android:layout_weight="1"
                         android:background="@android:color/transparent"
-                        android:text="PRESUPUESTO"
+                        android:text="CUOTA VOLUNTARIA"
                         android:textAlignment="textStart" />
 
 
@@ -277,7 +277,7 @@
                         android:id="@+id/textasdaView123"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Cuanto pagaras por obra"
+                        android:text="COMO AYUDARAS CON ESTO"
                         android:textAllCaps="true" />
 
                     <EditText

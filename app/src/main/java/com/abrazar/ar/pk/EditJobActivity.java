@@ -1,4 +1,4 @@
-package com.ninjas.tk.trabajito;
+package com.abrazar.ar.pk;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -35,7 +35,7 @@ public class EditJobActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private DatabaseReference workhub;
 
-    private Double jobLong ;
+    private Double jobLong;
     private Double jobLat;
 
     private AlertDialog.Builder builder;
@@ -53,10 +53,10 @@ public class EditJobActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         workhub = FirebaseDatabase.getInstance().getReference().child("jobs");
 
-        editJobName = (EditText)findViewById(R.id.editjobJobNameET);
-        editJobDesc = (EditText)findViewById(R.id.editjobDescET);
-        editJobBudget = (EditText)findViewById(R.id.editjobBudgetET);
-        editLocat = (TextView)findViewById(R.id.locat);
+        editJobName = (EditText) findViewById(R.id.editjobJobNameET);
+        editJobDesc = (EditText) findViewById(R.id.editjobDescET);
+        editJobBudget = (EditText) findViewById(R.id.editjobBudgetET);
+        editLocat = (TextView) findViewById(R.id.locat);
 
         editJobBTN = (Button) findViewById(R.id.editJobBTN);
 
@@ -64,9 +64,9 @@ public class EditJobActivity extends AppCompatActivity {
         workhub.child(job_key).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                editJobName.setText((String)dataSnapshot.child("jobName").getValue());
-                editJobDesc.setText((String)dataSnapshot.child("jobDesc").getValue());
-                editJobBudget.setText((String)dataSnapshot.child("jobBudget").getValue());
+                editJobName.setText((String) dataSnapshot.child("jobName").getValue());
+                editJobDesc.setText((String) dataSnapshot.child("jobDesc").getValue());
+                editJobBudget.setText((String) dataSnapshot.child("jobBudget").getValue());
             }
 
             @Override
@@ -83,8 +83,7 @@ public class EditJobActivity extends AppCompatActivity {
                 final String jdesc = editJobDesc.getText().toString();
                 final String jbudget = editJobBudget.getText().toString();
 
-                if (!TextUtils.isEmpty(jname) && !TextUtils.isEmpty(jdesc) && !TextUtils.isEmpty(jbudget))
-                {
+                if (!TextUtils.isEmpty(jname) && !TextUtils.isEmpty(jdesc) && !TextUtils.isEmpty(jbudget)) {
                     builder.setTitle("Confirmar");
                     builder.setMessage("Guardar cambios?");
 
@@ -110,7 +109,7 @@ public class EditJobActivity extends AppCompatActivity {
                                 }
                             });
 
-                            Toast.makeText(EditJobActivity.this,"Se guardaron los cambios!",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(EditJobActivity.this, "Se guardaron los cambios!", Toast.LENGTH_SHORT).show();
 
                             Intent intent = new Intent(EditJobActivity.this, SingleJobView.class);
                             intent.putExtra("job_id", job_key);
@@ -135,15 +134,12 @@ public class EditJobActivity extends AppCompatActivity {
 
                     AlertDialog alert = builder.create();
                     alert.show();
-                }
-                else{
-                    Toast.makeText(EditJobActivity.this,"Debes completar todos los campos!",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(EditJobActivity.this, "Debes completar todos los campos!", Toast.LENGTH_SHORT).show();
                 }
 
             }
         });
-
-
 
 
     }

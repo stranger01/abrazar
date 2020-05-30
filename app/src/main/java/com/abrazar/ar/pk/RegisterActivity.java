@@ -1,4 +1,4 @@
-package com.ninjas.tk.trabajito;
+package com.abrazar.ar.pk;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -35,6 +35,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private FirebaseAuth auth;
     private DatabaseReference workhub;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,11 +47,11 @@ public class RegisterActivity extends AppCompatActivity {
 
         progress = new ProgressDialog(this);
 
-        fulname = (EditText)findViewById(R.id.fulNameRegisterET);
-        email = (EditText)findViewById(R.id.emailRegisterET);
-        telephone = (EditText)findViewById(R.id.telephoneRegisterET);
+        fulname = (EditText) findViewById(R.id.fulNameRegisterET);
+        email = (EditText) findViewById(R.id.emailRegisterET);
+        telephone = (EditText) findViewById(R.id.telephoneRegisterET);
         password = (EditText) findViewById(R.id.passwordRegisterET);
-        confPassword = (EditText)findViewById(R.id.confPasswordRegisterET);
+        confPassword = (EditText) findViewById(R.id.confPasswordRegisterET);
         registerBTN = (Button) findViewById(R.id.registerBTN);
         linktologin = (Button) findViewById(R.id.linktologinBTN);
 
@@ -72,20 +73,16 @@ public class RegisterActivity extends AppCompatActivity {
                 String userPass = password.getText().toString().trim();
                 String userConfPass = confPassword.getText().toString().trim();
 
-                if (!TextUtils.isEmpty(userEmail) && !TextUtils.isEmpty(userPass) && !TextUtils.isEmpty(userConfPass) && !TextUtils.isEmpty(userName) && !TextUtils.isEmpty(userTelephone))
-                {
-                    if (validateEmail(userEmail)== true)
-                    {
-                        if (userConfPass.equals(userPass))
-                        {
+                if (!TextUtils.isEmpty(userEmail) && !TextUtils.isEmpty(userPass) && !TextUtils.isEmpty(userConfPass) && !TextUtils.isEmpty(userName) && !TextUtils.isEmpty(userTelephone)) {
+                    if (validateEmail(userEmail) == true) {
+                        if (userConfPass.equals(userPass)) {
                             progress.setMessage("Registrando,Espera un momento!");
                             progress.show();
 
-                            auth.createUserWithEmailAndPassword(userEmail,userPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            auth.createUserWithEmailAndPassword(userEmail, userPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
-                                    if (task.isSuccessful())
-                                    {
+                                    if (task.isSuccessful()) {
                                         String uid = auth.getCurrentUser().getUid();
                                         User newuser = new User();
                                         newuser.setUserEmail(userEmail);
@@ -95,35 +92,27 @@ public class RegisterActivity extends AppCompatActivity {
                                         workhub.child(uid).setValue(newuser);
 
                                         progress.dismiss();
-                                        Toast.makeText(RegisterActivity.this,"Cuenta registrada, Ahora ya puedes entrar!",Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(RegisterActivity.this, "Cuenta registrada, Ahora ya puedes entrar!", Toast.LENGTH_SHORT).show();
 
                                         Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                                         startActivity(intent);
                                         finish();
-                                    }
-                                    else
-                                    {
+                                    } else {
                                         progress.dismiss();
-                                        Toast.makeText(RegisterActivity.this,task.getException().getMessage()+" Usa otro correo Email",Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(RegisterActivity.this, task.getException().getMessage() + " Usa otro correo Email", Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             });
-                        }
-                        else
-                        {
+                        } else {
                             progress.dismiss();
-                            Toast.makeText(RegisterActivity.this,"Las contraseñas no coinciden!",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this, "Las contraseñas no coinciden!", Toast.LENGTH_SHORT).show();
                         }
 
+                    } else {
+                        Toast.makeText(RegisterActivity.this, "El email no es valido!", Toast.LENGTH_SHORT).show();
                     }
-                    else
-                    {
-                        Toast.makeText(RegisterActivity.this,"El email no es valido!",Toast.LENGTH_SHORT).show();
-                    }
-                }
-                else
-                {
-                    Toast.makeText(RegisterActivity.this,"Completa todos los campos",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(RegisterActivity.this, "Completa todos los campos", Toast.LENGTH_SHORT).show();
                 }
             }
         });

@@ -1,4 +1,4 @@
-package com.ninjas.tk.trabajito;
+package com.abrazar.ar.pk;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,6 +22,7 @@ public class SearchFragment extends Fragment {
     DatabaseReference workhub;
     AutoCompleteTextView searchtext;
     String selectedjobKey;
+
     public static SearchFragment newInstance() {
         SearchFragment fragment = new SearchFragment();
         return fragment;
@@ -46,62 +47,58 @@ public class SearchFragment extends Fragment {
 
     }
 
-    public static class SearchJobViewHolder extends RecyclerView.ViewHolder{
+    public static class SearchJobViewHolder extends RecyclerView.ViewHolder {
 
         View mview;
+
         public SearchJobViewHolder(View itemView) {
             super(itemView);
 
             mview = itemView;
         }
 
-        public void setJobName(String jobname){
+        public void setJobName(String jobname) {
             TextView jName = (TextView) mview.findViewById(R.id.jobrowname);
             jName.setText(jobname);
         }
 
-        public void setJobBudget(String jobbudget){
+        public void setJobBudget(String jobbudget) {
             TextView jBudget = (TextView) mview.findViewById(R.id.jobrowbudget);
-            jBudget.setText("COP."+jobbudget);
+            jBudget.setText("COP." + jobbudget);
         }
 
-        public void setJobLocation(String jobLocation){
+        public void setJobLocation(String jobLocation) {
             TextView jLocation = (TextView) mview.findViewById(R.id.jobrowlocation);
             jLocation.setText(jobLocation);
         }
 
-        public void setJobDate(String jobDate){
+        public void setJobDate(String jobDate) {
             TextView jDate = (TextView) mview.findViewById(R.id.jobrowdate);
-            jDate.setText("Added on "+jobDate);
+            jDate.setText("Added on " + jobDate);
         }
     }
 
     private void initViews(View view) {
 
-        String[] skills = {"Logística","Alcaldías","Aseguradoras","Asistente,Automotriz","Banca y finanzas", "Bienes raíces", "Bodega","Call Center","Comercio","Computación",
-                "Comunicaciones y periodismo","Confección","Contabilidad","Coordinador","Educación","Empleo de temporada","Gestión de Proyectos","Jardineria","Cuidado de animales",
-                "Industria de alimentos","Construcción","Farmaceutica","Manufactura","Industria pesquera","Industria textil","Investigación",
-                "Mantenimiento","Medio ambiente","Salud ocupacional","Mercadeo","ONG","Organizaciones Religiosas","Panadería","Publicidad","Recursos humanos","Restaurantes","Salud",
-                "Servicio a Domicilio","Servicios de limpieza","Mantenimiento residencia","Servicios de Mercadeo","Servicios de Publicidad","Mecanicos",
-                "Mantenimiento de equipo electrónico","Servicios de Salud","Servicios de Seguridad","Transporte de personas","Servicios de Turismo","Servicios legales",
-                "Superviso","Mensajeria","Tecnología","Trabajo Social","Transporte","Ventas"};
+        String[] skills = {"Frutas", "Productos de limpieza", "Productos para el hogar" , "Enlatados"};
+
 
         final ArrayAdapter<String> adapter = new ArrayAdapter<String>
                 (this.getActivity(), android.R.layout.select_dialog_item, skills);
 
         workhub = FirebaseDatabase.getInstance().getReference().child("jobs");
-        searchtext = (AutoCompleteTextView)view.findViewById(R.id.searchjobET);
+        searchtext = (AutoCompleteTextView) view.findViewById(R.id.searchjobET);
         searchtext.setThreshold(1);
         searchtext.setAdapter(adapter);
 
-        search_list = (RecyclerView)view.findViewById(R.id.search_list);
+        search_list = (RecyclerView) view.findViewById(R.id.search_list);
         search_list.setHasFixedSize(true);
         search_list.setLayoutManager(new LinearLayoutManager(this.getActivity()));
 
         searchtext.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                FirebaseRecyclerAdapter<Job,SearchJobViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Job, SearchJobViewHolder>(
+                FirebaseRecyclerAdapter<Job, SearchJobViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Job, SearchJobViewHolder>(
                         Job.class,
                         R.layout.search_row,
                         SearchJobViewHolder.class,
@@ -128,8 +125,6 @@ public class SearchFragment extends Fragment {
 
             }
         });
-
-
 
 
     }

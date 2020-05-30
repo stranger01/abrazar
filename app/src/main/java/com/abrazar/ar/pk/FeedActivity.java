@@ -1,4 +1,4 @@
-package com.ninjas.tk.trabajito;
+package com.abrazar.ar.pk;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -20,14 +20,14 @@ public class FeedActivity extends AppCompatActivity {
     private AlertDialog.Builder builder;
     private FirebaseAuth auth;
     private SharedPreferences pref;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feed);
 
 
-
-        pref = this.getSharedPreferences("Users",0);
+        pref = this.getSharedPreferences("Users", 0);
         builder = new AlertDialog.Builder(this);
         auth = FirebaseAuth.getInstance();
 
@@ -64,23 +64,22 @@ public class FeedActivity extends AppCompatActivity {
         //Used to select an item programmatically
         //bottomNavigationView.getMenu().getItem(2).setChecked(true);
 
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.replace(R.id.frame_layout, JobFragment.newInstance());
-            transaction.commit();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame_layout, JobFragment.newInstance());
+        transaction.commit();
 
 
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_menu,menu);
+        getMenuInflater().inflate(R.menu.main_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.SignOut)
-        {
+        if (item.getItemId() == R.id.SignOut) {
             builder.setTitle("Confirmar");
             builder.setMessage("Quieres salir?");
 
@@ -91,13 +90,13 @@ public class FeedActivity extends AppCompatActivity {
                     auth.signOut();
 
                     SharedPreferences.Editor editor = pref.edit();
-                    editor.putBoolean(Constants.IS_LOGGED_IN,false);
-                    editor.putString(Constants.EMAIL,null);
-                    editor.putString(Constants.UNIQUE_ID,null);
+                    editor.putBoolean(Constants.IS_LOGGED_IN, false);
+                    editor.putString(Constants.EMAIL, null);
+                    editor.putString(Constants.UNIQUE_ID, null);
                     editor.apply();
                     dialog.dismiss();
 
-                    startActivity(new Intent(FeedActivity.this,MainActivity.class));
+                    startActivity(new Intent(FeedActivity.this, MainActivity.class));
                     finish();
                 }
             });

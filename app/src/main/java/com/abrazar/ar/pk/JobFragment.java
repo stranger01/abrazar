@@ -1,4 +1,4 @@
-package com.ninjas.tk.trabajito;
+package com.abrazar.ar.pk;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,6 +20,7 @@ public class JobFragment extends Fragment {
     FloatingActionButton actionButton;
     RecyclerView job_list;
     DatabaseReference workhub;
+
     public static JobFragment newInstance() {
         JobFragment fragment = new JobFragment();
         return fragment;
@@ -42,7 +43,7 @@ public class JobFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
-        FirebaseRecyclerAdapter<Job,JobViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Job, JobViewHolder>(
+        FirebaseRecyclerAdapter<Job, JobViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Job, JobViewHolder>(
                 Job.class,
                 R.layout.job_row,
                 JobViewHolder.class,
@@ -70,33 +71,34 @@ public class JobFragment extends Fragment {
         job_list.setAdapter(firebaseRecyclerAdapter);
     }
 
-    public static class JobViewHolder extends RecyclerView.ViewHolder{
+    public static class JobViewHolder extends RecyclerView.ViewHolder {
 
         View mview;
+
         public JobViewHolder(View itemView) {
             super(itemView);
 
             mview = itemView;
         }
 
-        public void setJobName(String jobname){
+        public void setJobName(String jobname) {
             TextView jName = (TextView) mview.findViewById(R.id.jobrowname);
             jName.setText(jobname);
         }
 
-        public void setJobBudget(String jobbudget){
+        public void setJobBudget(String jobbudget) {
             TextView jBudget = (TextView) mview.findViewById(R.id.jobrowbudget);
-            jBudget.setText("COP."+jobbudget);
+            jBudget.setText("COP." + jobbudget);
         }
 
-        public void setJobLocation(String jobLocation){
+        public void setJobLocation(String jobLocation) {
             TextView jLocation = (TextView) mview.findViewById(R.id.jobrowlocation);
             jLocation.setText(jobLocation);
         }
 
-        public void setJobDate(String jobDate){
+        public void setJobDate(String jobDate) {
             TextView jDate = (TextView) mview.findViewById(R.id.jobrowdate);
-            jDate.setText("Agregado en  "+jobDate);
+            jDate.setText("Agregado en  " + jobDate);
         }
     }
 
@@ -104,8 +106,8 @@ public class JobFragment extends Fragment {
         workhub = FirebaseDatabase.getInstance().getReference().child("jobs");
         workhub.keepSynced(true);
 
-        actionButton = (FloatingActionButton)view.findViewById(R.id.floatingActionButton2);
-        job_list = (RecyclerView)view.findViewById(R.id.job_list);
+        actionButton = (FloatingActionButton) view.findViewById(R.id.floatingActionButton2);
+        job_list = (RecyclerView) view.findViewById(R.id.job_list);
         job_list.setHasFixedSize(true);
         job_list.setLayoutManager(new LinearLayoutManager(this.getActivity()));
 

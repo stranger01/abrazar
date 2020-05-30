@@ -148,7 +148,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
-                    android:text="Mis trabajitos"
+                    android:text="Favores"
                     android:textAlignment="textStart" />
 
 

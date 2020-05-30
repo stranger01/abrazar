@@ -1,4 +1,4 @@
-package com.ninjas.tk.trabajito;
+package com.abrazar.ar.pk;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -33,6 +33,7 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth auth;
 
     private SharedPreferences pref;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,15 +42,15 @@ public class LoginActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
 
-        pref = this.getSharedPreferences("Users",0);
+        pref = this.getSharedPreferences("Users", 0);
 
         progress = new ProgressDialog(this);
 
-        lEmail = (TextView)findViewById(R.id.emailLoginET);
-        lPass = (TextView)findViewById(R.id.passwordLoginET);
-        lLoginBTN = (Button)findViewById(R.id.loginBTN);
-        lLinktoSignupBTN = (Button)findViewById(R.id.linktoregisterBTN);
-        lForgotPassBTN = (Button)findViewById(R.id.forgotpasswordBTN);
+        lEmail = (TextView) findViewById(R.id.emailLoginET);
+        lPass = (TextView) findViewById(R.id.passwordLoginET);
+        lLoginBTN = (Button) findViewById(R.id.loginBTN);
+        lLinktoSignupBTN = (Button) findViewById(R.id.linktoregisterBTN);
+        lForgotPassBTN = (Button) findViewById(R.id.forgotpasswordBTN);
 
         lLinktoSignupBTN.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,46 +78,37 @@ public class LoginActivity extends AppCompatActivity {
                 String userEmail = lEmail.getText().toString().trim();
                 String userPass = lPass.getText().toString().trim();
 
-                if (!TextUtils.isEmpty(userEmail) || !TextUtils.isEmpty(userPass))
-                {
-                    if (validateEmail(userEmail) == true)
-                    {
+                if (!TextUtils.isEmpty(userEmail) || !TextUtils.isEmpty(userPass)) {
+                    if (validateEmail(userEmail) == true) {
                         progress.setMessage("Registro completo!");
                         progress.show();
 
-                        auth.signInWithEmailAndPassword(userEmail,userPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        auth.signInWithEmailAndPassword(userEmail, userPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful())
-                                {
+                                if (task.isSuccessful()) {
                                     SharedPreferences.Editor editor = pref.edit();
-                                    editor.putBoolean(Constants.IS_LOGGED_IN,true);
-                                    editor.putString(Constants.EMAIL,auth.getCurrentUser().getEmail());
-                                    editor.putString(Constants.UNIQUE_ID,auth.getCurrentUser().getUid());
+                                    editor.putBoolean(Constants.IS_LOGGED_IN, true);
+                                    editor.putString(Constants.EMAIL, auth.getCurrentUser().getEmail());
+                                    editor.putString(Constants.UNIQUE_ID, auth.getCurrentUser().getUid());
                                     editor.apply();
 
                                     progress.dismiss();
 
-                                    Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                     startActivity(intent);
                                     finish();
-                                }
-                                else
-                                {
+                                } else {
                                     progress.dismiss();
-                                    Toast.makeText(LoginActivity.this,"Algun elemento es invalido!",Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(LoginActivity.this, "Algun elemento es invalido!", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
+                    } else {
+                        Toast.makeText(LoginActivity.this, "Ese email no es valido", Toast.LENGTH_SHORT).show();
                     }
-                    else
-                    {
-                        Toast.makeText(LoginActivity.this,"Ese email no es valido",Toast.LENGTH_SHORT).show();
-                    }
-                }
-                else
-                {
-                    Toast.makeText(LoginActivity.this,"Completa los campos!",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(LoginActivity.this, "Completa los campos!", Toast.LENGTH_SHORT).show();
                 }
 
 
