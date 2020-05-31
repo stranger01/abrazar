@@ -52,6 +52,7 @@ public class LoginActivity extends AppCompatActivity {
         lLinktoSignupBTN = (Button) findViewById(R.id.linktoregisterBTN);
         lForgotPassBTN = (Button) findViewById(R.id.forgotpasswordBTN);
 
+
         lLinktoSignupBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,6 +61,7 @@ public class LoginActivity extends AppCompatActivity {
                 finish();
             }
         });
+
 
         lForgotPassBTN.setOnClickListener(new View.OnClickListener() {
             @Override

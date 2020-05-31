@@ -1,15 +1,26 @@
 package com.abrazar.ar.pk;
 
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
@@ -18,6 +29,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import static com.abrazar.ar.pk.R.color.background_floating_material_dark;
+import static com.abrazar.ar.pk.R.color.colorAccent;
 
 
 public class ProfileFragment extends Fragment {
@@ -29,6 +43,7 @@ public class ProfileFragment extends Fragment {
     private TextView probio;
 
     private Button editprofile;
+    private Button editRole;
 
     private RecyclerView projobs_list;
     private DatabaseReference workhub;
@@ -51,7 +66,10 @@ public class ProfileFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         initViews(view);
         return view;
+
+
     }
+
 
     @Override
     public void onStart() {
@@ -130,7 +148,9 @@ public class ProfileFragment extends Fragment {
         prowebsite = (TextView) view.findViewById(R.id.singleProfileWebsite);
         probio = (TextView) view.findViewById(R.id.singleProfileBio);
 
+
         editprofile = (Button) view.findViewById(R.id.profileEditBTN);
+        editRole = (Button) view.findViewById(R.id.editarRole);
 
         workhubusers.addValueEventListener(new ValueEventListener() {
             @Override
@@ -157,5 +177,29 @@ public class ProfileFragment extends Fragment {
                 startActivity(intent);
             }
         });
-    }
+
+        if (editRole.isActivated()) {
+        }
+        editRole.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Fragment newFragment = new RequestFavor();
+
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+                // Replace whatever is in the fragment_container view with this fragment,
+                // and add the transaction to the back stack
+                transaction.replace(R.id.frame_layout, newFragment);
+                transaction.addToBackStack(null);
+
+                // Commit the transaction
+                transaction.commit();
+
+
+            }
+        });
+
+     }
 }
+

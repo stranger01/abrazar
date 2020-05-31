@@ -97,6 +97,16 @@
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
+        <Button
+            android:id="@+id/editarRole"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:layout_marginBottom="20sp"
+            android:layout_weight="1"
+            android:background="?attr/colorError"
+            android:backgroundTint="@color/adminColor"
+            android:text="Cambiar rol" />
+
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_marginLeft="15dp"
@@ -112,8 +122,8 @@
 
                 <Button
                     android:id="@+id/profileEditBTN"
-                    android:layout_width="wrap_content"
-                    android:layout_height="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
                     android:text="Editar información" />
@@ -137,14 +147,14 @@
 
                 <ImageView
                     android:id="@+id/imageView2"
-                    android:layout_width="44dp"
-                    android:layout_height="44dp"
+                    android:layout_width="41dp"
+                    android:layout_height="17dp"
                     app:srcCompat="@mipmap/caselogoblue" />
 
                 <Button
                     android:id="@+id/button4"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="17dp"
                     android:layout_marginLeft="15dp"
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
