@@ -85,8 +85,8 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/input_outline"
                 android:ems="10"
-                android:hint="Barrio"
-                android:inputType="text"
+                android:hint="Telefono"
+                android:inputType="number"
                 android:padding="10dp"
                 android:textSize="15dp" />
 
