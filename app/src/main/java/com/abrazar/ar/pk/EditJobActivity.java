@@ -138,6 +138,7 @@ public class EditJobActivity extends AppCompatActivity {
                     Toast.makeText(EditJobActivity.this, "Debes completar todos los campos!", Toast.LENGTH_SHORT).show();
                 }
 
+
             }
         });
 

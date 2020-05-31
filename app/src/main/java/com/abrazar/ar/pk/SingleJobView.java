@@ -113,7 +113,7 @@ public class SingleJobView extends AppCompatActivity {
                 jobName.setText(job_name);
                 jobDesc.setText(job_desc);
                 jobLocation.setText(job_location);
-                jobBudget.setText("COP." + job_budget);
+                jobBudget.setText("$." + job_budget);
                 jobPostedDate.setText("Agregado en " + job_postedDate);
                 jobPostedUser.setText(job_postedUserName + " Dame este trabajito");
 

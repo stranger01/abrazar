@@ -114,8 +114,8 @@ public class SingleProfileActivity extends AppCompatActivity {
                 Intent sendIntent = new Intent(Intent.ACTION_VIEW);
                 sendIntent.setData(Uri.parse("sms:" + tele.trim()));
                 sendIntent.putExtra("sms_body", "Hola!\n" +
-                        "Estoy interesado " +
-                        "en el trabajito, mis habiliades se ajustan a lo que necesitas");
+                        "Me encantaria ayudarte " +
+                        "Me gustaria conocer mas detalles");
                 startActivity(sendIntent);
 
             }

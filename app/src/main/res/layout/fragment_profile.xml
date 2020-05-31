@@ -97,16 +97,6 @@
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
-        <Button
-            android:id="@+id/editarRole"
-            android:layout_width="match_parent"
-            android:layout_height="38dp"
-            android:layout_marginBottom="20sp"
-            android:layout_weight="1"
-            android:background="?attr/colorError"
-            android:backgroundTint="@color/adminColor"
-            android:text="Cambiar rol" />
-
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_marginLeft="15dp"

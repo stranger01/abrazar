@@ -91,7 +91,7 @@ public class RequestFavor extends Fragment {
 
         public void setJobBudget(String jobbudget) {
             TextView jBudget = (TextView) mview.findViewById(R.id.jobrowbudget);
-            jBudget.setText("COP." + jobbudget);
+            jBudget.setText("$." + jobbudget);
         }
 
         public void setJobLocation(String jobLocation) {
@@ -119,8 +119,8 @@ public class RequestFavor extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(getContext(), "Estas en modo 'AYUDA', Presiona CASA para volver"
-                , Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "Estas en modo 'AYUDA'\n Cierra la aplicacion para salir"
+                , Toast.LENGTH_SHORT).show();
             }
         });
 

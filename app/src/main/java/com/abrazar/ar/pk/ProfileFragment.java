@@ -148,9 +148,8 @@ public class ProfileFragment extends Fragment {
         prowebsite = (TextView) view.findViewById(R.id.singleProfileWebsite);
         probio = (TextView) view.findViewById(R.id.singleProfileBio);
 
-
         editprofile = (Button) view.findViewById(R.id.profileEditBTN);
-        editRole = (Button) view.findViewById(R.id.editarRole);
+
 
         workhubusers.addValueEventListener(new ValueEventListener() {
             @Override
@@ -175,31 +174,10 @@ public class ProfileFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), EditProfileActivity.class);
                 startActivity(intent);
+               
             }
         });
 
-        if (editRole.isActivated()) {
-        }
-        editRole.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Fragment newFragment = new RequestFavor();
-
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-
-                // Replace whatever is in the fragment_container view with this fragment,
-                // and add the transaction to the back stack
-                transaction.replace(R.id.frame_layout, newFragment);
-                transaction.addToBackStack(null);
-
-                // Commit the transaction
-                transaction.commit();
-
-
-            }
-        });
-
-     }
+    }
 }
 
