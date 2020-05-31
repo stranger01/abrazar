@@ -115,7 +115,7 @@ public class SingleJobView extends AppCompatActivity {
                 jobLocation.setText(job_location);
                 jobBudget.setText("$." + job_budget);
                 jobPostedDate.setText("Agregado en " + job_postedDate);
-                jobPostedUser.setText(job_postedUserName + " Dame este trabajito");
+                jobPostedUser.setText(job_postedUserName + " Yo te ayudaré");
 
 
                 if (auth.getCurrentUser().getUid().equals(job_postedUser)) {
@@ -271,7 +271,7 @@ public class SingleJobView extends AppCompatActivity {
 
         public void setJobBudget(String jobbudget) {
             TextView jBudget = (TextView) mview.findViewById(R.id.jobrowbudget);
-            jBudget.setText("COP." + jobbudget);
+            jBudget.setText("$." + jobbudget);
         }
 
         public void setJobLocation(String jobLocation) {
