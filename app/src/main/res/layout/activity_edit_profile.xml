@@ -247,7 +247,7 @@
                         android:layout_marginLeft="15dp"
                         android:layout_weight="1"
                         android:background="@android:color/transparent"
-                        android:text="Numer de telefono"
+                        android:text="Barrio"
                         android:textAlignment="textStart" />
 
 

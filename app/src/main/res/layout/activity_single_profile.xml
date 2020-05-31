@@ -115,7 +115,7 @@
                     android:layout_height="31dp"
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
-                    android:text="Llamar" />
+                    android:text="Buscar direccion" />
 
                 <Button
                     android:id="@+id/singleProfileMsgBTN"

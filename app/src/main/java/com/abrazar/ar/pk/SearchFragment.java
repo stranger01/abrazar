@@ -80,8 +80,8 @@ public class SearchFragment extends Fragment {
 
     private void initViews(View view) {
 
-        String[] skills = {"Frutas", "Productos de limpieza", "Productos para el hogar" , "Enlatados"};
-
+        String[] skills = {"Frutas", "Productos de limpieza", "Productos para el hogar" , "Enlatados",
+                "Pago de factura", "Envio de mensajes"};
 
         final ArrayAdapter<String> adapter = new ArrayAdapter<String>
                 (this.getActivity(), android.R.layout.select_dialog_item, skills);

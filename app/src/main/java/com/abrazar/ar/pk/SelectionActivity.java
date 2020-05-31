@@ -56,7 +56,7 @@ public class SelectionActivity extends AppCompatActivity {
 
                 Toast.makeText(getApplication(), "Pedir ayuda",Toast.LENGTH_LONG).show();
 
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), AddJobActivity.class);
                 startActivity(intent);
             }
         });

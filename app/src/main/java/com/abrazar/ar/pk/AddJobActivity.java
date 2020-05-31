@@ -52,7 +52,8 @@ public class AddJobActivity extends AppCompatActivity {
         workhub = FirebaseDatabase.getInstance().getReference().child("jobs");
         workhubUsers = FirebaseDatabase.getInstance().getReference().child("users");
 
-        String[] skills = {"Frutas", "Productos de limpieza", "Productos para el hogar" , "Enlatados"};
+        String[] skills = {"Frutas", "Productos de limpieza", "Productos para el hogar" , "Enlatados",
+        "Pago de factura", "Envio de mensajes"};
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>
                 (this, android.R.layout.select_dialog_item, skills);

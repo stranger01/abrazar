@@ -99,10 +99,13 @@ public class SingleProfileActivity extends AppCompatActivity {
         callBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String uri = "tel:" + tele.trim();
-                Intent intent = new Intent(Intent.ACTION_DIAL);
-                intent.setData(Uri.parse(uri));
-                startActivity(intent);
+
+                Intent sendIntent = new Intent(Intent.ACTION_VIEW);
+                sendIntent.setData(Uri.parse("sms:" + tele.trim()));
+                sendIntent.putExtra("sms_body", "Hola!\n" +
+                        "Podrias darme tu direccion " +
+                        "Para ayudarte");
+                startActivity(sendIntent);
 
             }
         });
